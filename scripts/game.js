@@ -140,11 +140,11 @@ function Start () {
   scoreText.Draw();
 
   if (score > highscore) {
-    //highscore = score;
+    highscore = score;
     highscoreText.t = "Highscore: " + highscore;
   }
   
-  //highscoreText.Draw();
+  highscoreText.Draw();
 
   gameSpeed += 0.003;
 }
