@@ -40,7 +40,7 @@ body {
   }
   
   canvas {
-    border: 15px solid rgb(56, 129, 80);
+    border: 15px solid rgb(60, 156, 92);
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(137,186,183,1) 29%, rgba(255,166,0,0.919502835313813) 100%); 
   } 
