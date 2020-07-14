@@ -14,6 +14,8 @@ class Obstacle {
     this.x += this.dx;
     this.Draw();
     this.dx = -gameSpeed;
+    
+    
   }
 
   Draw () {
@@ -22,7 +24,7 @@ class Obstacle {
     const img = new Image();
     img.src = "../obstacle.png";
     ctx.fillRect(this.x, this.y, this.w, this.h);
-     
+
     
 }
 

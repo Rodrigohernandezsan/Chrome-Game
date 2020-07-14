@@ -13,10 +13,12 @@ class Player {
       this.grounded = false;
       this.jumpTimer = 0;
       this.sound = new Audio("sound/jump.wav");
-      //this.gameOverSound = new Audio("sound\gameOver.ogg");
-      //this.gravitySound = new Audio("sound/fall.ogg");
+
+
     }
  
+
+
 
     Animate () {
         // Jump
@@ -25,6 +27,7 @@ class Player {
         } else {
           this.jumpTimer = 0;
         }
+        
     
         if (keys['ShiftLeft'] || keys['KeyS']) {
           this.h = this.originalHeight / 2;
@@ -33,13 +36,13 @@ class Player {
         }
         this.y += this.dy;
         
+        
     
         // Gravity
+
         if (this.y + this.h < canvas.height) {
           this.dy += gravity;
           this.grounded = false;
-          //this.gravitySound.volume = 0.2;
-          //this.gravitySound.play(0);
           
         } else {
           this.dy = 0;
@@ -55,20 +58,29 @@ class Player {
         if (this.grounded && this.jumpTimer == 0) {
           this.jumpTimer =  1;
           this.dy = -this.jumpForce;
-          this.sound.volume = 0.2;
-          this.sound.play();
+          
+
         } else if (this.jumpTimer > 0 && this.jumpTimer < 15) {
           this.jumpTimer++;
           this.dy = -this.jumpForce - (this.jumpTimer / 50);
+          this.sound.volume = 0.2;
+          this.sound.play();
           
           ;
         }
       }
 
-     
+    // //  // GameOver
+
+    //  for (let i = 0; i < obstacles.length; i++) {
+    //   let o = obstacles[i];
+  
+    //     this.gameOverSound.volume = 0.2;
+    //     this.gameOverSound.play();
+    //   }
     
        Draw () {
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'yellow';
         this.img = new Image();
         this.img.src = ("images/player.png");
         ctx.fillRect(this.x, this.y, this.w, this.h);

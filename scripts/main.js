@@ -8,10 +8,11 @@ function build (htmlString) {
 let mainContainer = document.getElementById("screen-container")
 
 function main () {
-    let game
-    let splashScreen
-    let gameScreen
-    let gameOverScreen
+    let game;
+    let splashScreen;
+    let gameScreen;
+    let gameOverScreen;
+    let victoryScreen;
    
 
     function drawSplashScreen() {
@@ -19,10 +20,9 @@ function main () {
         <div id="game-splash-screen" class="container">
         <h1>CHROME SQUARE</h1>
         <div class="images-group">
-       <img class="splash-background" src="images/obstacle.png" alt="Background">
+       <img class="splash-background" src="images/obstacle.png" alt="Background" >
        <img class="splash-background" src="images/player.png" alt="Background">
-       <img class="splash-background" src="images/obstacleBlack.png" alt="Background">
-            
+       <img class="splash-background" src="images/obstacleBlack.png" alt="Background"> 
        </div>
             <div class="btn-group">
                   <button id="start-button">START GAME</button>
@@ -31,7 +31,9 @@ function main () {
 
 
         mainContainer.appendChild(splashScreen)
+
         let startButton = document.getElementById("start-button")
+
         startButton.addEventListener('click', function() {
         startGame();
 
@@ -44,8 +46,9 @@ function main () {
     splashScreen.remove();
     }
    
+    
     function drawGameScreen() {
-        gameScreen = build(`
+        gameScreen = build (`
         <div id="game-screen">
           <canvas id="canvas" width="1500" height="450"></canvas>
         </div>`)
@@ -59,7 +62,7 @@ function main () {
     }
    
     function drawGameOverScreen() {
-        gameOverScreen = build(``)
+        gameOverScreen = build()
         
         mainContainer.appendChild(gameOverScreen)
         

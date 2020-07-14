@@ -22,6 +22,11 @@ document.addEventListener('keyup', function (evt) {
 });
 
 
+// audio
+
+//this.gameOverSound = new Audio("sound/gameOver.ogg");
+this.backgroundMusic = new Audio("sound/xeon6.ogg");
+
 
  
 class Text {
@@ -32,8 +37,7 @@ class Text {
     this.a = a;
     this.c = c;
     this.s = s;
-    // this.backgroundMusic.volume =0.1; 
-    // this.backgroundMusic.play();  
+
     
   }
 
@@ -50,9 +54,12 @@ class Text {
 
 // Game Functions
 function SpawnObstacle () {
+  
   let size = RandomIntInRange(20, 70);
   let type = RandomIntInRange(0, 1);
   let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size, size, '#2484E4');
+  this.backgroundMusic.volume = 0.1;
+  this.backgroundMusic.play();
 
   if (type == 1) {
     obstacle.y -= player.originalHeight - 10;
@@ -71,7 +78,8 @@ function Start () {
   score = 0;
   highscore = 0;
   if (localStorage.getItem('highscore')) {
-    highscore = localStorage.getItem('highscore');
+  highscore = localStorage.getItem('highscore');
+  
       
   }
   
@@ -111,6 +119,8 @@ function Start () {
 
     if (o.x + o.w < 0) {
       obstacles.splice(i, 1);
+      
+      
     }
 
     if (
@@ -119,8 +129,9 @@ function Start () {
       player.y < o.y + o.h &&
       player.y + player.h > o.y
       
+      
     ) {
-
+      
       
       obstacles = [];
       score = 0;
@@ -128,11 +139,14 @@ function Start () {
       gameSpeed = 3
       window.localStorage.setItem('highscore', highscore);
       alert('GAME OVER');
+      
       document.location.reload();
     }
   
     o.Update();
   }
+
+  
 
   player.Animate();
 
@@ -141,11 +155,12 @@ function Start () {
   scoreText.Draw();
 
   if (score > highscore) {
-    highscore = score;
-    highscoreText.t = "Highscore: " + highscore;
+    
+    //highscore = score;
+    //highscoreText.t = "Highscore: " + highscore;
   }
   
-  highscoreText.Draw();
+  //highscoreText.Draw();
 
   gameSpeed += 0.003;
 }
