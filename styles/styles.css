@@ -1,50 +1,51 @@
 body {
-  
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAATklEQVQoU2O0O3X+PwMDA8MhM0NGEI0LMBKtEJsJD27YgW1R0DgEtwWrdUQrxGYLY8V5iDUdhghrKFOITfenmXFgW/jSF+H3DNEKsdkCAO99IAvXcD3VAAAAAElFTkSuQmCC")
-  
-  }  
-  
-  #start-button {
-    border: 0;
-    box-shadow: 0;
-    background: linear-gradient(to bottom, #fab004, #c65900);
-    color: #fff;
-    padding: 25px ;
-    font-size: 30px;
-    border-radius: 5px;
-    font-family: 'Jura', sans-serif;
-    justify-content: center;
     
-  }
-  
+  }  
+ 
+.images-group {
+
+padding-left: 200px;
+
+
+}
+
   h1 {
   
     text-align: center;
     font-size: 60px;
     font-family: 'Jura', sans-serif;
     font-weight: bold;
-  }
-  
-  #game-logo {
-  
-      text-align: right;
-       
-  }
-  
-  #game-board {
-  
-    margin-left: 250px;
-    margin-top: 6px;
-    margin-right: 250px;
+    padding-top: 30px;
     
+  }
+
+ 
+  #start-button {
+    border: 0;
+    box-shadow: 0;
+    background: linear-gradient(to bottom, #fab004, #c65900);
+    color: #fff;
+    padding: 25px ;
+    margin-left: 850px;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 5px;
+    font-family: 'Jura', sans-serif;
+    justify-content: center;
+    margin-top: 100px;
   }
   
   canvas {
+    margin-top: 30px;
+    margin-left: 180px;
+    margin-right: 100px;
     border: 15px solid rgb(60, 156, 92);
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(137,186,183,1) 29%, rgba(255,166,0,0.919502835313813) 100%); 
+
   } 
   
-  
+ 
   
   

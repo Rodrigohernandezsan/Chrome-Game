@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
@@ -62,15 +61,17 @@ function SpawnObstacle () {
 }
 function RandomIntInRange (min, max) {
   return Math.round(Math.random() * (max - min) + min);
+
+  
 }
 function Start () {
-  gameSpeed = 8;
+  
+  gameSpeed = 4;
   gravity = 1;
   score = 0;
   highscore = 0;
   if (localStorage.getItem('highscore')) {
     highscore = localStorage.getItem('highscore');
-    //player.events.onOutOfBounds.add(function(){
       
   }
   
@@ -150,8 +151,3 @@ function Start () {
 }
 
 Start();
-
-
-
-
- 
