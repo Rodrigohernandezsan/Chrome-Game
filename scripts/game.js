@@ -19,6 +19,12 @@ this.gameOverSound = new Audio("sound/gameOver.ogg");
 this.backgroundMusic = new Audio("sound/xeon6.ogg");
 
 
+// GameOver
+
+//this.gameOverImg = new Image();
+
+
+
 // Event Listeners
 document.addEventListener('keydown', function (evt) {
   keys[evt.code] = true;
@@ -39,6 +45,7 @@ class Text {
     this.a = a;
     this.c = c;
     this.s = s;
+    
 
     
   }
@@ -56,14 +63,13 @@ class Text {
 
 
 
-
 // Game Functions
 
 function SpawnObstacle () {
   let size = RandomIntInRange(20, 70);
   let type = RandomIntInRange(0, 1);
   let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size, size, '#2484E4');
-  
+    
 
   if (type == 1) {
     obstacle.y -= player.originalHeight - 10;
@@ -77,7 +83,7 @@ function RandomIntInRange (min, max) {
 }
 function Start () {
   
-  gameSpeed = 4;
+  gameSpeed = 4;         
   gravity = 1;
   score = 0;
   highscore = 0;
@@ -85,7 +91,7 @@ function Start () {
   highscore = localStorage.getItem('highscore');
   this.backgroundMusic.volume = 0.2;
   this.backgroundMusic.play();
-  
+ 
       
   }
   
@@ -99,7 +105,7 @@ function Start () {
 
   let initialSpawnTimer = 200;
   let spawnTimer = initialSpawnTimer;
-   function Update () {
+  function Update () {
   requestAnimationFrame(Update);
   
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -144,18 +150,19 @@ function Start () {
       window.localStorage.setItem('highscore', highscore);
 
       this.backgroundMusic.pause();
-      this.gameOverSound.volume = 0.3;
+
+      // Game Over
       this.gameOverSound.play();
-        
+      this.gameOverSound.volume = 0.3;
+
+      //this.gameOverImg.src = "firstgame/images/gameOver.jpg";
       alert('GAME OVER');
-      
       document.location.reload();
     }
   
     o.Update();
   }
 
-  
 
   player.Animate();
 

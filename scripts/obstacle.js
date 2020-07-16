@@ -27,20 +27,4 @@ class Obstacle {
 
     
 }
-
 }
-
-
- 
-// Draw (){
-//   this.ctx.fillStyle = 'white';
-//   const img = new Image();
-//   img.src = "image/player.png";
-//   this.ctx.drawImage(
-//     img,
-//     this.x,
-//     this.y,
-//     this.width,
-//     this.height,
-//   );
-// }
