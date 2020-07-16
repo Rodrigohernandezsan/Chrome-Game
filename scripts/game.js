@@ -174,4 +174,4 @@ function Start () {
   gameSpeed += 0.003;
 }
 
-Start(
+Start();
