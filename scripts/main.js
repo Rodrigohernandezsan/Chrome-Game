@@ -13,40 +13,32 @@ function main () {
     let gameScreen;
     let gameOverScreen;
     let victoryScreen;
+
+
+    //drawSplashScreen
    
 
-    function drawSplashScreen() {
+function drawSplashScreen() {
         splashScreen = build (`
         <div id="game-splash-screen" class="container">
         <h1>CHROME SQUARE</h1>
         <div class="images-group">
-       <img class="splash-background" src="images/obstacle.png" alt="Background" >
-       <img class="splash-background" src="images/player.png" alt="Background">
-       <img class="splash-background" src="images/obstacleBlack.png" alt="Background"> 
-       </div>
+        <img class="splash-background" src="images/obstacle.png" alt="Background" >
+        <img class="splash-background" src="images/player.png" alt="Background">
+        <img class="splash-background" src="images/obstacleBlack.png" alt="Background"> 
+        </div>
             <div class="btn-group">
                   <button id="start-button">START GAME</button>
-           
         </div> `)
-
-
         mainContainer.appendChild(splashScreen)
-
         let startButton = document.getElementById("start-button")
-
         startButton.addEventListener('click', function() {
         startGame();
-
-
     });
     }
-
- 
     function removeSplashScreen() {
     splashScreen.remove();
     }
-   
-    
     function drawGameScreen() {
         gameScreen = build (`
         <div id="game-screen">
@@ -57,6 +49,9 @@ function main () {
         return gameScreen
     }
    
+
+//removeGameScreen
+
     function removeGameScreen() {
     gameScreen.remove();
     }
@@ -83,8 +78,6 @@ function main () {
     function startGame() {
         removeSplashScreen();
         removeGameOverScreen();
-        
-
         game = new Game();
         game.gameScreen = drawGameScreen();
         game.init()

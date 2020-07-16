@@ -1,6 +1,7 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
+
 // Variables
 let score;
 let scoreText;
@@ -12,6 +13,11 @@ let obstacles = [];
 let gameSpeed; ;
 let keys = {};
 
+// audio
+
+this.gameOverSound = new Audio("sound/gameOver.ogg");
+this.backgroundMusic = new Audio("sound/xeon6.ogg");
+
 
 // Event Listeners
 document.addEventListener('keydown', function (evt) {
@@ -22,13 +28,9 @@ document.addEventListener('keyup', function (evt) {
 });
 
 
-// audio
-
-//this.gameOverSound = new Audio("sound/gameOver.ogg");
-this.backgroundMusic = new Audio("sound/xeon6.ogg");
 
 
- 
+
 class Text {
   constructor (t, x, y, a, c, s) {
     this.t = t;
@@ -52,14 +54,16 @@ class Text {
   }
 }
 
+
+
+
 // Game Functions
+
 function SpawnObstacle () {
-  
   let size = RandomIntInRange(20, 70);
   let type = RandomIntInRange(0, 1);
   let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size, size, '#2484E4');
-  this.backgroundMusic.volume = 0.1;
-  this.backgroundMusic.play();
+  
 
   if (type == 1) {
     obstacle.y -= player.originalHeight - 10;
@@ -79,6 +83,8 @@ function Start () {
   highscore = 0;
   if (localStorage.getItem('highscore')) {
   highscore = localStorage.getItem('highscore');
+  this.backgroundMusic.volume = 0.2;
+  this.backgroundMusic.play();
   
       
   }
@@ -110,8 +116,6 @@ function Start () {
   }
   
   
-  
-
   // obstacles
 
   for (let i = 0; i < obstacles.length; i++) {
@@ -138,6 +142,11 @@ function Start () {
       spawnTimer = initialSpawnTimer;
       gameSpeed = 3
       window.localStorage.setItem('highscore', highscore);
+
+      this.backgroundMusic.pause();
+      this.gameOverSound.volume = 0.3;
+      this.gameOverSound.play();
+        
       alert('GAME OVER');
       
       document.location.reload();
@@ -156,13 +165,13 @@ function Start () {
 
   if (score > highscore) {
     
-    //highscore = score;
-    //highscoreText.t = "Highscore: " + highscore;
+    highscore = score;
+    highscoreText.t = "Highscore: " + highscore;
   }
   
-  //highscoreText.Draw();
+  highscoreText.Draw();
 
   gameSpeed += 0.003;
 }
 
-Start();
+Start(

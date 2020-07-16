@@ -70,14 +70,9 @@ class Player {
         }
       }
 
-    // //  // GameOver
-
-    //  for (let i = 0; i < obstacles.length; i++) {
-    //   let o = obstacles[i];
-  
-    //     this.gameOverSound.volume = 0.2;
-    //     this.gameOverSound.play();
-    //   }
+    
+       
+    
     
        Draw () {
         ctx.fillStyle = 'yellow';
