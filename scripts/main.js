@@ -23,9 +23,9 @@ function drawSplashScreen() {
         <div id="game-splash-screen" class="container">
         <h1>CHROME SQUARE</h1>
         <div class="images-group">
-        <img class="splash-background" src="images/obstacle.png" alt="Background" >
-        <img class="splash-background" src="images/player.png" alt="Background">
-        <img class="splash-background" src="images/obstacleBlack.png" alt="Background"> 
+        <img class="splash-background" src="images/obstacle.png" alt="Background" width="350" height="350" >
+        <img class="splash-background" src="images/player.png" alt="Background" width="350" height="350">
+        <img class="splash-background" src="images/obstacleBlack.png" alt="Background" width="350" height="350"> 
         </div>
             <div class="btn-group">
                   <button id="start-button">START GAME</button>
@@ -42,7 +42,7 @@ function drawSplashScreen() {
     function drawGameScreen() {
         gameScreen = build (`
         <div id="game-screen">
-          <canvas id="canvas" width="1500" height="450"></canvas>
+          <canvas id="canvas" width="1100" height="450"></canvas>
         </div>`)
 
         mainContainer.appendChild(gameScreen)
